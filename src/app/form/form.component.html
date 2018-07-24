@@ -1,0 +1,15 @@
+<h4>模版驱动表单</h4>
+<form #personForm="ngForm" [formGroup]="personFormGroup">
+  <div><label>姓名：</label><input type="text" [(ngModel)]="person.name" formControlName="nameform" required name="name"/></div>
+  <div><label>年龄：</label><input type="number" formControlName="age" [(ngModel)]="person.age" required name="age"/></div>
+  <div><label>性别：</label><select [(ngModel)]="person.sex" formControlName="sex" required name="sex"><option *ngFor="let sex of sex" [value]="sex">{{sex}}</option></select></div>
+  <div><label>是否已婚：</label><select [(ngModel)]="person.marry" formControlName="marry" required name="marry"><option value="true">是</option><option value="false">否</option></select></div>
+  <div><label>电话号码：</label><input type="tel" [(ngModel)]="person.phone" formControlName="phone" name="phone"/></div>
+
+
+  <button type="submit" [disabled]="personForm.form.invalid">提交</button>
+  <p>Form value: {{ personFormGroup.value | json }}</p>
+  <p>Form status: {{ personFormGroup.status | json }}</p>
+  全局变量：{{global.globalOne}}
+</form>
+

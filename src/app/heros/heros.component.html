@@ -1,0 +1,44 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <!--<table border=1>
+    &lt;!&ndash;  expression calculates colspan=2 &ndash;&gt;
+    <tr><td [attr.colspan]="1 + 1">One-Two</td></tr>
+
+    &lt;!&ndash; ERROR: There is no `colspan` property to set!
+      <tr><td colspan="{{1 + 1}}">Three-Four</td></tr>
+    &ndash;&gt;
+
+    <tr><td>Five</td><td>Six</td></tr>
+  </table>
+
+  全局变量：{{global.globalOne}}{{global.global2}}-->
+
+  <ul>
+    <li *ngFor="let heros of heroes;trackBy:trackByHeros" (click)="goDetail(heros.id)"  >{{heros.name}}</li>
+  </ul><!--[routerLink]="['/heros-detail',heros.id]"-->
+  <button on-click="changeHeros()">修改heroes数据</button>
+
+
+  <button [disabled]="isUnchange" [attr.aria-label]="actionName">{{actionName | addHello:'crystal':4}}测试禁用按钮</button>
+
+  <button on-click="getEvent($event)" value="abc">测试event</button>
+
+<!--  <app-detail [hero]="selectedHero"></app-detail>-->
+
+  <delete-hero (deleteRequest)="deleteHero($event)" [heroess]="heroes"></delete-hero>
+
+  <h4 appHighlight="gray" highColor="cyan">动态组件</h4>
+  <ng-template ad-host></ng-template>
+
+  <a [routerLink]="['/form']">模板驱动表单</a>
+
+  <h4>问卷动态表单</h4>
+  <app-dynamic-form [questions]="questions"></app-dynamic-form>
+
+  <button type="button" (click)="getData()">http请求数据</button>
+
+  <button type="button" (click)="getData2()">httpClient请求数据</button>
+  <button type="button" (click)="getData3()">httpClient请求数据常用</button>
+  <button type="button" (click)="getData4()">httpClient请求数据promise返回</button>
+</div>
+
